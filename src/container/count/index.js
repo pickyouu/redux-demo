@@ -1,41 +1,27 @@
-import CountUI from "../../pages/count";
 import {connect} from "react-redux"
-import { add,asyncadd,syncadd } from "../../action";
-//方式1
-/* const a=(state)=>{
-  return {
-    count:state
+import { add,asyncadd} from "../../action";
+
+import React from "react";
+
+class CountUI extends React.Component{
+  add=()=>{
+    this.props.jia()
+  }
+  asyncAdd=()=>{
+   this.props.asyncjia()
+  }
+  
+  render(){
+    return(
+      <div>
+        count:{this.props.count}
+        <button onClick={this.add}>+1</button>
+        <button onClick={this.asyncAdd}>+1 async</button>
+      
+      </div>
+    )
   }
 }
-
-const b=(dispatch)=>{
-  return{
-    jia:()=>{
-      dispatch(add())
-    },
-    asyncjia:()=>{
-      dispatch(asyncadd())
-    }
-  }
-} */
-
-
-//connect(a,b)(UI)  函数a,b的返回值在UI的props能看到,分别是state，和操作state的方法
-//export default connect(a,b)(CountUI)
-
-// 优化
-/* export default connect(
-  state=>({count:state}),
-  dispatch=>({
-    jia:()=>{
-      dispatch(add())
-    },
-    asyncjia:()=>{
-      dispatch(asyncadd())
-    }
-}))(CountUI) */
-
-//在优化  简洁版 
 export default connect(
   state=>({count:state}),
   {
