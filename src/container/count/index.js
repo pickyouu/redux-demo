@@ -1,5 +1,5 @@
 import {connect} from "react-redux"
-import { add,asyncadd} from "../../action";
+import { add,asyncadd} from "../../redux/action/count";
 
 import React from "react";
 
@@ -23,7 +23,7 @@ class CountUI extends React.Component{
   }
 }
 export default connect(
-  state=>({count:state}),
+  state=>({count:state.count}),
   {
     jia:add, //直接给action;生成action对象后会自动调用dispatch
     asyncjia:asyncadd

@@ -9,5 +9,5 @@ function reducer(state=initState,action){
   }
 }
 module.exports={
-  reducer
+  count:reducer
 }
