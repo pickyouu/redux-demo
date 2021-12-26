@@ -1,6 +1,5 @@
 import React from "react";
-
-import Count from "./pages/count"
+import Count from "./container/count"
 class App extends React.Component{
   render(){
     return(
